@@ -1,5 +1,42 @@
 # vue-3-ecomerce
 
+
+# Tienda Online
+# Entities
+
+# Product
+-id
+-name
+-description
+-price
+-image
+
+# Category
+- Name
+- Description
+
+# Cart
+products: '[{productId: 1, quantity: 3},{productId: 7, quantity: 5}]'
+
+# Pages
+- / -> Todos los productos
+- /category/5 -> Productos solo de la categoría 5
+- /cart -> Ver el carrito de compras.
+
+
+# Components
+
+### ProductCard
+
+### se le puede agregar lógica no tan extensa a un botón 
+<button @click="count = count + 1">
+    Aumentar Contador
+  </button>
+
+
+
+
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
