@@ -1,9 +1,11 @@
 <script  lang="ts">
 import type { Product } from '../model/Types';
-import type { CartDetail } from '../model/Types';
+//import type { CartDetail } from '../model/Types';
 import ProductCard from './ProductCard.vue';
 import Cart from './Cart.vue'
 import { useTheme } from 'vuetify'
+import { useCartStore } from '@/stores/cart';
+
 
 //Dentro de nuestra data tenemos un objeto que define el estado de nuestro componente
 //El objeto products
@@ -21,14 +23,18 @@ export default {
         ProductCard,
         Cart
     },
+    props:['details'],
     data() {
         return {
             products:<Array<Product>>[
                 {name: 'Silla', price: 56, id: 1},
                 {name: 'Monitor', price: 450, id: 2},
-                {name: 'Microfono',price: 120, id: 3}
+                {name: 'Microfono',price: 120, id: 3},
+                {name: 'Silla', price: 56, id: 1},
+                {name: 'Monitor', price: 450, id: 2},
+                {name: 'Microfono',price: 120, id: 3},
             ],
-            details:<Array<CartDetail>>[]
+           // details:<Array<CartDetail>>[]
         }
     },
     methods: {
@@ -65,10 +71,9 @@ export default {
      </v-row>
    
 
+     <!--aquí antes estaba el prop :details="details"-->
+   <!--<Cart></Cart>--> 
     
-    <Cart :details="details"></Cart>
-    
-
        <!--
         <li v-for="product in products">
             {{ product.name }} ($ {{ product.price }})

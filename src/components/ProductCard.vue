@@ -1,6 +1,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { Product } from './Types';
+import type { Product } from '../model/Types';
+import { useCartStore } from '@/stores/cart';
 //Dentro de nuestra data tenemos un objeto que define el estado de nuestro componente
 //El objeto products
 export default {
@@ -11,10 +12,12 @@ export default {
          required: true
       }
    },
-   emits: ['addProduct'],
+   //emits: ['addProduct'], se quita porque este componente ya no va a emitir un evento
    methods: {
       onAddButtonClick() {
-         this.$emit('addProduct');
+         //this.$emit('addProduct'); se elimina esta linea que se encargaba de emitir el evento
+         const cartStore = useCartStore();
+         cartStore.addProduct(this.product.id);
       }
    }
 }
